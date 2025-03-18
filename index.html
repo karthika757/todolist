@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO do list</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="con">
+    <h1> To-Do List App</h1>
+    <input id="one" type="text" placeholder="Add a new task">
+    <button id="two" onclick="icon()">Add</button>
+    <ul id="three">
+    </ul> 
+    
+    </div>
+</body>
+</html>
+<script>
+    var n1=document.getElementById("one")
+    var list=document.getElementById("three")
+   function icon()
+    {
+        var retrive=n1.value
+        if (retrive === "") {
+        alert("Please enter a task!"); // Prevent empty tasks
+        return;
+        }
+    
+        var listitem=document.createElement("li")
+        listitem.innerHTML=retrive +  "<button onclick='del(event)'>Delete</button>"
+        list.append(listitem)
+        n1.value=""
+    }
+    function del(event)
+    {
+       event.target.parentElement.remove()
+    }
+</script>
